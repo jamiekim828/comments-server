@@ -8,3 +8,5 @@ In this assignment, you will create a server using Express
 2. Step 2: yarn start
 
 # Requirements
+
+1. Create a serve in `index.ts` file
