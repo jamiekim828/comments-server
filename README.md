@@ -10,6 +10,7 @@ In this assignment, you will create a server using Express
 ## Requirements
 
 1. Create a serve in `index.ts` file
+2. Practice by creating more methods with suitable endpoint
 
 ## Screenshots
 
