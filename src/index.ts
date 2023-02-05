@@ -34,14 +34,14 @@ let comments = [
 
 // get method
 app.get('/comments', (req: Request, res: Response) => {
-  res.json(comments);
+  res.status(200).json(comments);
 });
 
 // post method
 app.post('/comments/:id', (req: Request, res: Response) => {
   const newComment = req.body;
   comments.push(newComment);
-  res.json(comments);
+  res.status(200).json(comments);
 });
 
 // put method
@@ -49,15 +49,20 @@ app.put('/comments/:id', (req: Request, res: Response) => {
   const editComment = req.body;
   const index = comments.findIndex((comment) => comment.id === editComment.id);
   console.log(index);
-  comments[index] = editComment;
-  res.json(comments);
+  if (index !== -1) {
+    comments[index] = editComment;
+    res.status(200).json(comments);
+  } else {
+    res.json('cant find the comment by this id');
+  }
 });
 
 // delete method
 app.delete('/comments/:id', (req: Request, res: Response) => {
   const id = req.params.id;
+
   const newCommentArray = comments.filter((comment) => comment.id !== id);
-  res.json(newCommentArray);
+  res.status(200).json(newCommentArray);
 });
 
 // port adress
